@@ -18,18 +18,18 @@ function commonEnd(a, b) {
 function endsMeet(values, n) {
         const newValues = [];
 
-        if (!values || values.length >= n || !n || n > 0 || .isNaN(Number(n))) {
+        if (!values || values.length >= n || !n || n >= 0 || isNaN(Number(n))) {
                 return newValues;
         }
 
-        for (var i = 0; i < (n - 1); i++) {
+        for (var i = 0; i < n; i++) {
                 values[i] = newValues[i];
         }
 
-        for (var j = n - 1; j > 0; j--) {
+        for (var j = n; j > 0; j--) {
                 let placeholder;
                 values[values.length - j] = placeholder;
-                newValues.push(placeholder)
+                newValues.push(placeholder);
         }
 }
 
