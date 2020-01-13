@@ -16,7 +16,21 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-  // write your code here
+        const newValues = [];
+
+        if (!values || values.length >= n || !n || n > 0 || .isNaN(Number(n))) {
+                return newValues;
+        }
+
+        for (var i = 0; i < (n - 1); i++) {
+                values[i] = newValues[i];
+        }
+
+        for (var j = n - 1; j > 0; j--) {
+                let placeholder;
+                values[values.length - j] = placeholder;
+                newValues.push(placeholder)
+        }
 }
 
 function difference(numbers) {
