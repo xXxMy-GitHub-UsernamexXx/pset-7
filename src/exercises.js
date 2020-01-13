@@ -1,9 +1,18 @@
 function commonEnd(a, b) {
-  if (!a || a.length === 0 || !b || b.length === 0) {
-    return false;
-  }
+        if (!a || a.length === 0 || !b || b.length === 0) {
+                return false;
+        }
 
-  // write your code here
+        const aLast = a.length - 1;
+        const bLast = b.length - 1;
+
+        if (a[0] === b[0]) {
+                return true;
+        } else if (a[aLast] === b[bLast]) {
+                return true;
+        } else {
+                return false;
+        }
 }
 
 function endsMeet(values, n) {
@@ -36,7 +45,7 @@ function consecutive(numbers) {
 
 function balance(numbers) {
   // write your code here
-  console.log("test");
+        console.log("test");
 }
 
 function clumps(values) {
