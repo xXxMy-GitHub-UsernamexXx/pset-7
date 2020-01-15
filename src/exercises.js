@@ -21,7 +21,7 @@ function endsMeet(values, n) {
         if (!values || (values.length < n) || !n || n <= 0 || isNaN(Number(n))) {
                 return newValues;
         } else {
-                for (var i = 0; i < n - 1; i++) {
+                for (var i = 0; i < n; i++) {
                         let placeholderA = values[i];
                         newValues.push(placeholderA);
                 }
