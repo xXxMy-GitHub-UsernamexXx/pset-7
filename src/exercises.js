@@ -25,18 +25,58 @@ function endsMeet(values, n) {
                         let placeholderA = values[i];
                         newValues.push(placeholderA);
                 }
-
                 for (var j = n; j > 0; j--) {
                         let placeholderB = values[values.length - j];
                         newValues.push(placeholderB);
                 }
 
-                return newValues
+                return newValues;
         }
 }
 
 function difference(numbers) {
-  // write your code here
+        const placeholderArray = [];
+        let highestNumber;
+        let lowestNumber;
+        let finished = null;
+
+        if (!numbers || (numbers.length === 0)) {
+                return undefined;
+        } else {
+                numbers.forEach((numberA) => {
+                        let indexPlaceholder = isNaN(Number(numberA)) ? true : false;
+                        placeholderArray.push(indexPlaceholder);
+                });
+                for (var i = 0; i < placeholderArray.length; i++) {
+                        if (placeholderArray[i] == true) {
+                                return undefined;
+                                finished = true;
+                                break;
+                        }
+                }
+
+                if (numbers[0] > numbers[1]) {
+                        highestNumber = numbers[0];
+                        lowestNumber = numbers[1];
+                } else if (numbers[0] < numbers[1]) {
+                        highestNumber = numbers[1];
+                        lowestNumber = numbers[0];
+                } else if (numbers.length = 1) {
+                        highestNumber = numbers[0];
+                        lowestNumber = numbers[0];
+                }
+                if (finished !== true) {
+                        numbers.forEach((numberB) => {
+                                if (numberB > highestNumber) {
+                                        highestNumber = numberB;
+                                } else if (numberB < lowestNumber) {
+                                        lowestNumber = numberB;
+                                }
+                        });
+
+                        return (highestNumber - lowestNumber);
+                }
+        }
 }
 
 function max(number) {
