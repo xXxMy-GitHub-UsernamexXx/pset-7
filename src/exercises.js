@@ -90,18 +90,36 @@ function middle(values) {
         if (!values || values.length < 3) {
                 completion = true;
                 return output;
-        } else if ((values.length % 2) === 0) {
-                return output;
+        }
+
+        if ((values.length % 2) === 0) {
                 completion = true;
-        } else if (completion == false) {
-                for (var i = 0; i < values.length; i++) {
-                        if (isNaN(Number(values[i]))) {
+                return output;
+        }
+
+        if (completion == false) {
+                values.forEach((value) => {
+                        valueA = Number(value);
+                });
+
+                for (var i = 0; i < values.length - 1; i++) {
+                        if (isNaN(values[i])) {
                                 return output;
                                 completion = true;
                                 break;
                         }
                 }
-        } else {
+        }
+
+        if (completion == false) {
+                let valuesEnd = values.length - 1;
+                let valuesMiddle = valuesEnd / 2;
+                let minusOne = valuesMiddle - 1;
+                let plusOne = valuesMiddle + 1;
+
+                output.push((values[minusOne]), (values[valuesMiddle]), (values[plusOne]));
+
+                return output;
         }
 }
 
