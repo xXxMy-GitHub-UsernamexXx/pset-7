@@ -84,7 +84,25 @@ function max(number) {
 }
 
 function middle(values) {
-  // write your code here
+        let output = [];
+        let completion = false;
+
+        if (!values || values.length < 3) {
+                completion = true;
+                return output;
+        } else if ((values.length % 2) === 0) {
+                return output;
+                completion = true;
+        } else if (completion == false) {
+                for (var i = 0; i < values.length; i++) {
+                        if (isNaN(Number(values[i]))) {
+                                return output;
+                                completion = true;
+                                break;
+                        }
+                }
+        } else {
+        }
 }
 
 function increasing(numbers) {
