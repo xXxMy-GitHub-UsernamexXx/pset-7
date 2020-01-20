@@ -98,20 +98,6 @@ function middle(values) {
         }
 
         if (completion == false) {
-                values.forEach((value) => {
-                        valueA = Number(value);
-                });
-
-                for (var i = 0; i < values.length - 1; i++) {
-                        if (isNaN(values[i])) {
-                                return output;
-                                completion = true;
-                                break;
-                        }
-                }
-        }
-
-        if (completion == false) {
                 let valuesEnd = values.length - 1;
                 let valuesMiddle = valuesEnd / 2;
                 let minusOne = valuesMiddle - 1;
