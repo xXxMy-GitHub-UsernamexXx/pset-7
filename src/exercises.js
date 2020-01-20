@@ -200,8 +200,8 @@ function increasing(numbers) {
         }
 
         if (done == false) {
-                numbers.forEach((numberA) => {
-                        numberB = Number(numberA);
+                numbers.forEach((number) => {
+                        number = Number(number);
                 });
 
                 for (var i = 0; i < numbers.length - 1; i++) {
@@ -295,7 +295,76 @@ function everywhere(values, x) {
 }
 
 function consecutive(numbers) {
-  // write your code here
+        let failed = false;
+
+        if (!numbers || numbers.length < 3) {
+                failed = true;
+                return false;
+        }
+
+        if (failed == false) {
+                numbers.forEach((number) => {
+                        number = Number(number);
+                });
+
+                for (var i = 0; i < numbers.length - 1; i++) {
+                        if (isNaN(numbers[i])) {
+                                failed = true;
+                                return false;
+                                break;
+                        }
+                }
+        }
+
+        if (failed == false) {
+                for (var j = 0; j < numbers.length - 1; j++) {
+                        let x = numbers[j]
+
+                        while (x >= 1) {
+                                x = x - 1;
+                        }
+
+                        if (x !== 0) {
+                                failed = true;
+                                return false;
+                                break;
+                        }
+                }
+        }
+
+        if (failed == false) {
+                let seen = false;
+
+                for (var l = 0; l <= numbers.length - 3; l++) {
+                        let lOne = numbers[l];
+                        let lTwo = numbers[l + 1];
+                        let lThree = numbers[l + 2];
+
+                        if ((lOne % 2) === 0) {
+                                if ((lTwo % 2) === 0) {
+                                        if ((lThree % 2) === 0) {
+                                                seen = true;
+                                                return true;
+                                                break;
+                                        }
+                                }
+                        } else if ((lOne % 2) === 1) {
+                                if ((lTwo % 2) === 1) {
+                                        if ((lThree % 2) === 1) {
+                                                seen = true;
+                                                return true;
+                                                break;
+                                        }
+                                }
+                        } else {
+                                seen = false;
+                        }
+                }
+
+                if (seen == false) {
+                        return false;
+                }
+        }
 }
 
 function balance(numbers) {
