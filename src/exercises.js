@@ -253,7 +253,45 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
-  // write your code here
+        let over = false;
+
+        if (!values || values.length < 1 || !x) {
+                over = true;
+                return false;
+        }
+
+        if (over == false) {
+                for (var i = 0; i < values.length - 1; i++) {
+                        let below = values[i - 1];
+                        let above = values[i + 1];
+
+                        if (i === 0) {
+                                if ((values[i] !== x) && (above !== x)) {
+                                        over = true;
+                                        return false;
+                                        break;
+                                }
+                        } else if (i === (values.length - 1)) {
+                                if ((values[i] !== x) && (below !== x)) {
+                                        over = true;
+                                        return false;
+                                        break;
+                                }
+                        } else {
+                                if (values[i] !== x) {
+                                        if ((below !== x) && (above !== x)) {
+                                                over = true;
+                                                return false;
+                                                break;
+                                        }
+                                }
+                        }
+                }
+        }
+
+        if (over == false) {
+                return true;
+        }
 }
 
 function consecutive(numbers) {
