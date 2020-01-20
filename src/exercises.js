@@ -79,8 +79,90 @@ function difference(numbers) {
         }
 }
 
-function max(number) {
-  // write your code here
+function max(numbers) {
+        let complete = false;
+
+        if (!numbers || numbers.length < 3) {
+                complete = true;
+                return undefined;
+        }
+
+        if ((numbers.length % 2) === 0) {
+                complete = true;
+                return undefined;
+        }
+
+        // if (completion == false) {
+        //         values.forEach((valueA) => {
+        //                 switch (valueA) {
+        //                         case "one":
+        //                                 valueA = 1;
+        //                                 break;
+        //                         case "two":
+        //                                 valueA = 2;
+        //                                 break;
+        //                         case "three":
+        //                                 valueA = 3;
+        //                                 break;
+        //                         case "four":
+        //                                 valueA = 4;
+        //                                 break;
+        //                         case "five":
+        //                                 valueA = 5;
+        //                                 break;
+        //                         case "six":
+        //                                 valueA = 6;
+        //                                 break;
+        //                         case "seven":
+        //                                 valueA = 7;
+        //                                 break;
+        //                         case "eight":
+        //                                 valueA = 8;
+        //                                 break;
+        //                         case "nine":
+        //                                 valueA = 9;
+        //                                 break;
+        //                         default:
+        //                                 break;
+        //                 }
+        //         });
+        // }
+
+        if (complete == false) {
+                numbers.forEach((number) => {
+                        number = Number(number);
+                });
+
+                for (var i = 0; i < numbers.length - 1; i++) {
+                        if (isNaN(numbers[i])) {
+                                complete = true;
+                                return undefined;
+                                break;
+                        }
+                }
+        }
+
+        if (complete == false) {
+                let numbersEnd = numbers[numbers.length - 1];
+                let numbersMiddle = numbers[(numbers.length - 1) / 2];
+                let numbersBeginning = numbers[0];
+
+                if (numbersBeginning > numbersMiddle) {
+                        if (numbersBeginning > numbersEnd) {
+                                return numbersBeginning;
+                        } else if (numbersBeginning < numbersEnd) {
+                                return numbersEnd;
+                        }
+                } else if (numbersBeginning < numbersMiddle) {
+                        if (numbersMiddle > numbersEnd) {
+                                return numbersMiddle;
+                        } else if (numbersMiddle < numbersEnd) {
+                                return numbersEnd;
+                        }
+                } else if ((numbersBeginning === numbersMiddle) && (numbersMiddle === numbersEnd)) {
+                        return numbersMiddle;
+                }
+        }
 }
 
 function middle(values) {
