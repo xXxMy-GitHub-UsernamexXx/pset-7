@@ -192,7 +192,64 @@ function middle(values) {
 }
 
 function increasing(numbers) {
-  // write your code here
+        let done = false;
+
+        if (!numbers || numbers.length < 3) {
+                done = true;
+                return false;
+        }
+
+        if (done == false) {
+                numbers.forEach((numberA) => {
+                        numberB = Number(numberA);
+                });
+
+                for (var i = 0; i < numbers.length - 1; i++) {
+                        if (isNaN(numbers[i])) {
+                                done = true;
+                                return false;
+                                break;
+                        }
+                }
+        }
+
+        if (done == false) {
+                for (var j = 0; j < numbers.length - 1; j++) {
+                        let x = numbers[j]
+
+                        while (x >= 1) {
+                                x = x - 1;
+                        }
+
+                        if (x !== 0) {
+                                done = true;
+                                return false;
+                                break;
+                        }
+                }
+        }
+
+        if (done == false) {
+                let found = false;
+
+                for (var l = 0; l <= numbers.length - 3; l++) {
+                        let one = numbers[l];
+                        let two = numbers[l + 1];
+                        let three = numbers[l + 2];
+
+                        if (one < two) {
+                                if (two < three) {
+                                        found = true;
+                                        return true;
+                                        break;
+                                }
+                        }
+                }
+
+                if (found == false) {
+                        return false;
+                }
+        }
 }
 
 function everywhere(values, x) {
