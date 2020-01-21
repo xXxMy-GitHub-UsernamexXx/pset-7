@@ -368,8 +368,69 @@ function consecutive(numbers) {
 }
 
 function balance(numbers) {
-  // write your code here
-        console.log("test");
+        let wrong = false;
+
+        if (!numbers || numbers.length < 2) {
+                wrong = true;
+                return false;
+        }
+
+        if (wrong == false) {
+                numbers.forEach((number) => {
+                        number = Number(number);
+                });
+
+                for (var i = 0; i < numbers.length - 1; i++) {
+                        if (isNaN(numbers[i])) {
+                                wrong = true;
+                                return false;
+                                break;
+                        }
+                }
+        }
+
+        if (wrong == false) {
+                for (var j = 0; j < numbers.length - 1; j++) {
+                        let x = numbers[j]
+
+                        while (x >= 1) {
+                                x = x - 1;
+                        }
+
+                        if (x !== 0) {
+                                wrong = true;
+                                return false;
+                                break;
+                        }
+                }
+        }
+
+        if (wrong == false) {
+                if (((numbers.length - 1) % 2) === 0) {
+                        wrong = true;
+                        return false;
+                } else if (((numbers.length - 1) % 2) !== 0) {
+                        let highMiddle = (numbers.length - 1) / 2;
+                        let lowMiddle = highMiddle - 1;
+                        let highSum;
+                        let lowSum;
+
+                        for (var l = highMiddle; l < numbers.length; l++) {
+                                highSum = numbers[l] + highSum;
+                        }
+                        for (var z = lowMiddle; z > (0 - 1); z--) {
+                                lowSum = numbers[z] + lowSum;
+                        }
+                }
+        }
+
+        if (wrong == false) {
+                if (lowSum == highSum) {
+                        return true;
+                } else {
+                        return false;
+                }
+        }
 }
 
 function clumps(values) {
