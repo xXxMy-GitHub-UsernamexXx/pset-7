@@ -412,7 +412,27 @@ function balance(numbers) {
 }
 
 function clumps(values) {
-  // write your code here
+        let clumps = 0;
+
+        if (!values) {
+                clumps = -1;
+                return clumps;
+        } else if (values.length === 0) {
+                clumps = 0;
+                return clumps;
+        } else {
+                clumps = 0;
+                for (var i = 0; i < values.length - 1; i++) {
+                        if (values[i] === values[i + 1]) {
+                                while (values[i] === values[i + 1]) {
+                                        i += 1
+                                }
+                                clumps += 1;
+                        }
+                }
+
+                return clumps;
+        }
 }
 
 /*
