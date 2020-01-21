@@ -92,42 +92,6 @@ function max(numbers) {
                 return undefined;
         }
 
-        // if (completion == false) {
-        //         values.forEach((valueA) => {
-        //                 switch (valueA) {
-        //                         case "one":
-        //                                 valueA = 1;
-        //                                 break;
-        //                         case "two":
-        //                                 valueA = 2;
-        //                                 break;
-        //                         case "three":
-        //                                 valueA = 3;
-        //                                 break;
-        //                         case "four":
-        //                                 valueA = 4;
-        //                                 break;
-        //                         case "five":
-        //                                 valueA = 5;
-        //                                 break;
-        //                         case "six":
-        //                                 valueA = 6;
-        //                                 break;
-        //                         case "seven":
-        //                                 valueA = 7;
-        //                                 break;
-        //                         case "eight":
-        //                                 valueA = 8;
-        //                                 break;
-        //                         case "nine":
-        //                                 valueA = 9;
-        //                                 break;
-        //                         default:
-        //                                 break;
-        //                 }
-        //         });
-        // }
-
         if (complete == false) {
                 numbers.forEach((number) => {
                         number = Number(number);
@@ -375,6 +339,13 @@ function balance(numbers) {
                 return false;
         }
 
+        if (numbers.length === 2) {
+                if (numbers[0] === numbers[1]) {
+                        wrong = true;
+                        return true;
+                }
+        }
+
         if (wrong == false) {
                 numbers.forEach((number) => {
                         number = Number(number);
@@ -397,7 +368,7 @@ function balance(numbers) {
                                 x = x - 1;
                         }
 
-                        if (x !== 0) {
+                        if (x > 0) {
                                 wrong = true;
                                 return false;
                                 break;
@@ -406,28 +377,35 @@ function balance(numbers) {
         }
 
         if (wrong == false) {
-                if (((numbers.length - 1) % 2) === 0) {
-                        wrong = true;
-                        return false;
-                } else if (((numbers.length - 1) % 2) !== 0) {
-                        let highMiddle = (numbers.length - 1) / 2;
-                        let lowMiddle = highMiddle - 1;
-                        let highSum;
-                        let lowSum;
+                let works = false;
 
-                        for (var l = highMiddle; l < numbers.length; l++) {
-                                highSum = numbers[l] + highSum;
+                for (var l = 0; l < (numbers.length - 1); l++) {
+                        let highNumbers = [];
+                        let lowNumbers = [];
+                        let highSum = 0;
+                        let lowSum = 0;
+
+                        for (var z = 0; z <= l; z++) {
+                                lowNumbers.push(numbers[z]);
                         }
-                        for (var z = lowMiddle; z > (0 - 1); z--) {
-                                lowSum = numbers[z] + lowSum;
+                        for (var q = numbers.length - 1; q > l; q--) {
+                                highNumbers.push(numbers[q]);
+                        }
+                        for (highNumber of highNumbers) {
+                                highSum += highNumber;
+                        }
+                        for (lowNumber of lowNumbers) {
+                                lowSum += lowNumber;
+                        }
+
+                        if (lowSum === highSum) {
+                                works = true;
+                                return true;
+                                break;
                         }
                 }
-        }
 
-        if (wrong == false) {
-                if (lowSum == highSum) {
-                        return true;
-                } else {
+                if (works == false) {
                         return false;
                 }
         }
